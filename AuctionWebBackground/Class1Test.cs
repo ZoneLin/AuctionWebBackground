@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace AuctionWebBackground
+namespace TeamC
 {
     [TestFixture]
     public class Class1Test
