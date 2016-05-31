@@ -61,14 +61,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AllProduct.cs" />
+    <Compile Include="AllProductTest.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Class1Test.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderTest.cs" />
     <Compile Include="Product.cs" />
+    <Compile Include="ProductTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopingCart.cs" />
+    <Compile Include="ShopingCartTest.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
+    <Compile Include="UserDataTest.cs" />
+    <Compile Include="UserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
