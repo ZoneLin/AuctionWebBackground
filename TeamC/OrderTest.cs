@@ -30,7 +30,7 @@ namespace TeamC
         {
             Order order = new Order();
 
-            input_order_state = "出貨";
+            input_order_state = "出貨中";
 
             order.SetOrderState(input_order_state);
 
