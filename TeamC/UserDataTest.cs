@@ -18,7 +18,6 @@ namespace TeamC
             Payinformation.Add("12345678");
             user.SetPayinformation(Payinformation);
             Assert.That(Payinformation, Is.EqualTo(user.GetPayinformation()));
-
         }
         [Test]
         public void TestSetandGetPassword()

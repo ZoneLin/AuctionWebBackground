@@ -9,16 +9,14 @@ namespace TeamC
     class UserData
     {
         private string password;
-        private int id;
         private int usertype;
         private List<Order> orderlist=new List<Order>();
         private List<string> payinformation;
         private string account;
-        public  UserData(int uid=0,string pwd="")
+        public  UserData(string id="",string pwd="")
         {
-            id = uid;
             password = pwd;
-            account = "";
+            account = id;
             usertype  = 0;
         }
         public void SetPayinformation(List<string> Payinformation)
@@ -54,5 +52,9 @@ namespace TeamC
             return orderlist[0];
         }
 
+        public string GetAccount()
+        {
+            return account;
+        }
     }
 }
