@@ -22,7 +22,7 @@ namespace TeamC
         {
             orderstate = state;
         }
-
+        //
         public void SetBuyTime(string time)
         {
             buytime = time;
