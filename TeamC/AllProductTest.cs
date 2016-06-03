@@ -21,7 +21,7 @@ namespace TeamC
             Product product2 = new Product();
             product2.SetName("Test2");
             product2.SetContent("Very cheap");
-            product2.SetPrice(10);
+            product2.SetPrice(100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That("Test2", Is.EqualTo(allproduct.GetProduct(1).getName()));
@@ -37,7 +37,7 @@ namespace TeamC
             Product product2 = new Product();
             product2.SetName("Test2");
             product2.SetContent("Very cheap");
-            product2.SetPrice(10);
+            product2.SetPrice(100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             allproduct.RemoveProduct(product);
@@ -54,7 +54,7 @@ namespace TeamC
             Product product2 = new Product();
             product2.SetName("Test2");
             product2.SetContent("Very cheap");
-            product2.SetPrice(10);
+            product2.SetPrice(100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That(1, Is.EqualTo(allproduct.GetProductIndex(product2)));
