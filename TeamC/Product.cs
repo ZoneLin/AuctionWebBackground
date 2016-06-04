@@ -12,12 +12,15 @@ namespace TeamC
         private  string content;
         private  int  price;
         private  DateTime lastTime;
+        private int num;
         public Product() {
             name = content = "";
             price = 0;
+            num = 1;
             lastTime = DateTime.Now;
         }
-        public Product(string NewName, string NewContent, int NewPrice) {
+        public Product(string NewName, string NewContent, int NewPrice, int NewNum) {
+            num = NewNum;
             name = NewName;
             content = NewContent;
             price = NewPrice;
@@ -58,6 +61,12 @@ namespace TeamC
         public DateTime getLastTime()
         {
             return lastTime;
+        }
+        public int getNum() {
+            return num;
+        }
+        public void setNum(int NewNum){
+            num = NewNum;
         }
     }
 }
