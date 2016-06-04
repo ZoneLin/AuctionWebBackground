@@ -11,6 +11,12 @@ namespace TeamC
     class ProductTest
     {
         [Test]
+        public void TestProductLastTime() {
+            Product A = new Product();
+            Assert.That(DateTime.Now, Is.EqualTo(A.getLastTime()));
+ 
+        }
+        [Test]
         public void TestGetAndSetName() {
             Product product = new Product();
             product.SetName("name");

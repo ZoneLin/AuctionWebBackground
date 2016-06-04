@@ -54,5 +54,10 @@ namespace TeamC
         {
             return price;
         }
+
+        public DateTime getLastTime()
+        {
+            return lastTime;
+        }
     }
 }
