@@ -31,9 +31,14 @@ namespace TeamC
         {
             return payinformation;
         }
-        public void SetPassword(string pwd)
+        public int SetPassword(string pwd)
         {
-            password = pwd;
+            int j;
+            if (Int32.TryParse(pwd, out j))
+                return 0;
+            else
+                password = pwd;
+            return 1;
         }
         public string GetPassword()
         {
