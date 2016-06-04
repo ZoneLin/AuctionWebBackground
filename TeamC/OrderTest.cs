@@ -11,11 +11,11 @@ namespace TeamC
     class OrderTest
     {
         [Test]
-        public void Test_SetPaymethod(string input_order_method)
+        public void Test_SetPaymethod()
         {
             Order order = new Order();
 
-            input_order_method = "貨到付款";
+            string input_order_method = "貨到付款";
 
             order.SetPaymethod(input_order_method);
 
@@ -26,11 +26,11 @@ namespace TeamC
         }
     
         [Test]
-        public void Test_SetOrderState(string input_order_state)
+        public void Test_SetOrderState()
         {
             Order order = new Order();
 
-            input_order_state = "出貨中";
+            string input_order_state = "出貨中";
 
             order.SetOrderState(input_order_state);
 
@@ -41,11 +41,11 @@ namespace TeamC
 
 
         [Test]
-        public void Test_SetBuytime(string input_order_buytime)
+        public void Test_SetBuytime()
         {
             Order order = new Order();
 
-            input_order_buytime = "12:30";
+            string input_order_buytime = "12:30";
 
             string output = order.GetBuyTime();
 

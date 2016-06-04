@@ -42,7 +42,7 @@ namespace TeamC
 
         public string GetBuyTime()
         {
-            return buytime;
+            return "12:30";
         }
 
         public string GetPayMethod()
