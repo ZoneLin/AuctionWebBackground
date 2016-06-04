@@ -32,14 +32,17 @@ namespace TeamC
         {
             return productlist[index];
         }
-        public int GetProductnum(int index)
-        {
-            return productnum[index];
-        }
+<<<<<<< HEAD
 
         public int GetCount()
         {
             return productlist.Count();
         }   //  get the number of product that added to the cart.
+=======
+        public int GetProductnum(int index)
+        {
+            return productnum[index];
+        }
+>>>>>>> 6929323b6d4c55408872c802de272a6becb69559
     }
 }

@@ -24,8 +24,10 @@ namespace TeamC
         {
             UserData user = new UserData();
             string passwd = "12345678";
-            user.SetPassword(passwd);
-            Assert.That(passwd, Is.EqualTo(user.GetPassword()));
+            Assert.That(0, Is.EqualTo(user.SetPassword(passwd)));
+            string passwd2 = "sy12345678";
+            Assert.That(1, Is.EqualTo(user.SetPassword(passwd2)));
+            Assert.That(passwd2, Is.EqualTo(user.GetPassword()));
 
         }
         [Test]
@@ -45,6 +47,22 @@ namespace TeamC
             user.SetOrderList(ord);
             Assert.That(ord, Is.EqualTo(user.GetOrderList()));
 
+        }
+        [Test]
+        public void TestSetGetEmail()
+        {
+            UserData user = new UserData();
+            string addr = "123";
+            user.SetEmail(addr);
+            Assert.That(addr, Is.EqualTo(user.GetEmail()));
+
+        }
+        public void TestSetGetshopcart()
+        {
+            UserData user = new UserData();
+            ShopingCart ord = new ShopingCart();
+            user.Setshopcart(ord);
+            Assert.That(ord, Is.EqualTo(user.Getshopcart()));
         }
     }
 }

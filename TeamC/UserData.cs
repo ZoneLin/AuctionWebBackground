@@ -12,6 +12,7 @@ namespace TeamC
         private string emailAddress;
         private string account;
         private int usertype;
+        private List<ShopingCart> shopchart = new List<ShopingCart>();
         private List<Order> orderlist=new List<Order>();
         private List<string> payinformation;
 
@@ -31,9 +32,14 @@ namespace TeamC
         {
             return payinformation;
         }
-        public void SetPassword(string pwd)
+        public int SetPassword(string pwd)
         {
-            password = pwd;
+            int j;
+            if (Int32.TryParse(pwd, out j))
+                return 0;
+            else
+                password = pwd;
+            return 1;
         }
         public string GetPassword()
         {
@@ -68,6 +74,14 @@ namespace TeamC
         public string GetAccount()
         {
             return account;
+        }
+        public void Setshopcart(ShopingCart shp)
+        {
+            shopchart.Add(shp);
+        }
+        public ShopingCart Getshopcart()
+        {
+            return shopchart[0];
         }
     }
 }
