@@ -14,8 +14,8 @@ namespace TeamC
         public void TestInsertAndGet()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product("Test1", "Expensive", 30000);
-            Product product2 = new Product("Test2", "Cheap", 100);
+            Product product = new Product("Test1", "Expensive", 30000,1);
+            Product product2 = new Product("Test2", "Cheap", 100,1);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That("Test2", Is.EqualTo(allproduct.GetProduct(1).getName()));
@@ -24,7 +24,7 @@ namespace TeamC
         public void TestGetProductExcept()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product("Test1", "Expensive", 30000);
+            Product product = new Product("Test1", "Expensive", 30000,1);
             allproduct.InsertProduct(product);
             Assert.That("", Is.EqualTo(allproduct.GetProduct(1).getName()));
         }
@@ -32,8 +32,8 @@ namespace TeamC
         public void TestInsertAndRemove()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product("Test1", "Expensive", 30000);
-            Product product2 = new Product("Test2", "Cheap", 100);
+            Product product = new Product("Test1", "Expensive", 30000,1);
+            Product product2 = new Product("Test2", "Cheap", 100,1);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             allproduct.RemoveProduct(product);
@@ -43,11 +43,23 @@ namespace TeamC
         public void TestGetIndex()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product("Test1", "Expensive", 30000);
-            Product product2 = new Product("Test2", "Cheap", 100);
+            Product product = new Product("Test1", "Expensive", 30000,1);
+            Product product2 = new Product("Test2", "Cheap", 100,1);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That(1, Is.EqualTo(allproduct.GetProductIndex(product2)));
+        }
+        [Test]
+        public void TestAutoRemove()
+        {
+            AllProduct allproduct = new AllProduct();
+            Product product = new Product("Test1", "Expensive", 30000, 1);
+            Product product2 = new Product("Test2", "Cheap", 100, 1);
+            allproduct.InsertProduct(product);
+            allproduct.InsertProduct(product2);
+            allproduct.GetProduct(0).setNum(0);
+            allproduct.CheckRemove();
+            Assert.That(0, Is.EqualTo(allproduct.GetProductIndex(product2)));
         }
     }
 }

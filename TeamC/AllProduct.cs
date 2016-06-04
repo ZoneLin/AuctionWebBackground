@@ -29,7 +29,16 @@ namespace TeamC
         {
             productlist.Remove(product);
         }
-
+        public void CheckRemove()
+        {
+            for (int i = 0; i < productlist.Count; i++)
+            {
+                if (productlist[i].getNum() == 0)
+                {
+                    productlist.Remove(productlist[i]);
+                }
+            }
+        }
         public int GetProductIndex(Product product)
         {
             return productlist.IndexOf(product);
