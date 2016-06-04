@@ -48,5 +48,14 @@ namespace TeamC
             Assert.That(ord, Is.EqualTo(user.GetOrderList()));
 
         }
+        [Test]
+        public void TestSetGetEmail()
+        {
+            UserData user = new UserData();
+            string addr = "123";
+            user.SetEmail(addr);
+            Assert.That(addr, Is.EqualTo(user.GetEmail()));
+
+        }
     }
 }
