@@ -52,6 +52,17 @@ namespace TeamC
             Assert.That(output, Is.EqualTo(input_order_buytime));
         }
 
+        [Test]      //not finish
+        public void Test_AddFromCart()
+        {
+            Order order = new Order();
+            ShopingCart cart = new ShopingCart();
+            Product product = new Product("apple", "good apple", 999);
+            cart.InsertProduct(product);
+            order.AddFromCartToOrder(cart);
+            Assert.That(product.getName(), Is.EqualTo(order.Getproductlist(0).getName()));
+   
+        }
 
     }
 }

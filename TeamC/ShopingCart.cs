@@ -32,5 +32,10 @@ namespace TeamC
         {
             return productlist[index];
         }
+
+        public int GetCount()
+        {
+            return productlist.Count();
+        }   //  get the number of product that added to the cart.
     }
 }

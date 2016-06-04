@@ -32,6 +32,15 @@ namespace TeamC
         {
             return orderstate;
         }
+        
+        public void AddFromCartToOrder(ShopingCart cart)
+        {  // add products into the order list from the shoppping cart
+            int counter = cart.GetCount();      //get the nubmer of product in cart
+            for (int i = 0; i < counter; i++)
+            {
+                productlist.Add(cart.GetProduct(i));
+            }
+        }
 
         //////////////////////////////////////////////////////
 
