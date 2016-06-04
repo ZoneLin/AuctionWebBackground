@@ -9,28 +9,32 @@ namespace TeamC
     class ShopingCart
     {
         List<Product> productlist = new List<Product>();
-        public void InsertProduct(Product product)
+        List<int> productnum = new List<int>();
+        public int InsertProduct(Product product)
         {
+            for (int i = 0; i < productlist.Count; i++)
+            {
+                if (product.getName() == productlist[i].getName()
+                    && product.getPrice() == productlist[i].getPrice()
+                    && product.getContent() == productlist[i].getContent()
+                    )
+                {
+                    productnum[i]++;
+                    return productnum[i];
+                }
+
+            }
             productlist.Add(product);
-        }
-        public string showName(int index)
-        {
-            string x = productlist[index].getName();
-            return x;
-        }
-        public string showContent(int index)
-        {
-            string x = productlist[index].getContent();
-            return x;
-        }
-        public int showPrice(int index)
-        {
-            int x = productlist[index].getPrice();
-            return x;
+            productnum.Add(1);
+            return productnum[productlist.Count - 1];
         }
         public Product GetProduct(int index)
         {
             return productlist[index];
+        }
+        public int GetProductnum(int index)
+        {
+            return productnum[index];
         }
     }
 }

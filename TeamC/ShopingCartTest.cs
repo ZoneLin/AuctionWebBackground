@@ -20,9 +20,9 @@ namespace TeamC
             product.SetContent("content");
             product.SetPrice(100);
             productlist.InsertProduct(product);
-            Assert.That("name", Is.EqualTo(productlist.showName(0)));
-            Assert.That("content", Is.EqualTo(productlist.showContent(0)));
-            Assert.That(100, Is.EqualTo(productlist.showPrice(0)));
+            Assert.That("name", Is.EqualTo(productlist.GetProduct(0).getName()));
+            Assert.That("content", Is.EqualTo(productlist.GetProduct(0).getContent()));
+            Assert.That(100, Is.EqualTo(productlist.GetProduct(0).getPrice()));
         }
         [Test]
         public void TestGetProduct()
@@ -43,6 +43,22 @@ namespace TeamC
             Assert.That(100, Is.EqualTo(productlist.GetProduct(0).getPrice()));
             Assert.That(200, Is.EqualTo(productlist.GetProduct(1).getPrice()));
         }
+        [Test]
+        public void SameProductinfo()
+        {
+            Product product = new Product();
+            Product product2 = new Product();
+            ShopingCart productlist = new ShopingCart();
+            product.SetName("name");
+            product.SetContent("content");
+            product.SetPrice(100);
+            Assert.That(1, Is.EqualTo(productlist.InsertProduct(product)));
+            product2.SetName("name");
+            product2.SetContent("content");
+            product2.SetPrice(100);
+            Assert.That(2, Is.EqualTo(productlist.InsertProduct(product2)));
+        }
+
     }
 }
 
