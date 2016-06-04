@@ -14,7 +14,10 @@ namespace TeamC
             productlist = new List<Product>();
         }
 
-        public Product GetProduct(int index) {
+        public Product GetProduct(int index)
+        {
+            if (index >= productlist.Count || index < 0)
+                return new Product();
             return productlist[index];
         }
 

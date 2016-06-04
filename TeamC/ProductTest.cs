@@ -17,6 +17,15 @@ namespace TeamC
             Assert.That("name", Is.EqualTo(product.getName()));
         }
         [Test]
+        public void TestInitProductMethod()
+        {
+            Product product = new Product("name", "content", 100);
+            Assert.That("name", Is.EqualTo(product.getName()));
+            Assert.That("content", Is.EqualTo(product.getContent()));
+            Assert.That(100, Is.EqualTo(product.getPrice()));
+
+        }
+        [Test]
         public void TestGetAndSetContent()
         {
             Product product = new Product();

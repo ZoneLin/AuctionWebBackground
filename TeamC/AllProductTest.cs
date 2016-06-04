@@ -27,6 +27,17 @@ namespace TeamC
             Assert.That("Test2", Is.EqualTo(allproduct.GetProduct(1).getName()));
         }
         [Test]
+        public void TestGetProductExcept()
+        {
+            AllProduct allproduct = new AllProduct();
+            Product product = new Product();
+            product.SetName("Test1");
+            product.SetContent("Very Expensive");
+            product.SetPrice(300000);
+            allproduct.InsertProduct(product);
+            Assert.That("", Is.EqualTo(allproduct.GetProduct(1).getName()));
+        }
+        [Test]
         public void TestInsertAndRemove()
         {
             AllProduct allproduct = new AllProduct();
