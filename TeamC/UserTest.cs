@@ -53,5 +53,17 @@ namespace TeamC
             Assert.That(users.Login("A", "BBBBB"), Is.EqualTo(false));
             Assert.That(users.Login("B", "BBBBB"), Is.EqualTo(false));
         }
+
+        [Test]
+        public void TestCurrentUser()
+        {
+            User users = new User();
+            users.Registered("A", "pswA");
+            users.Login("A", "pswA");
+
+            Assert.That(users.GetCurrentLoginUser(), Is.EqualTo(users.GetUserData("A")));
+            users.Logout();
+            Assert.That(users.GetCurrentLoginUser(), Is.EqualTo(null));
+        }
     }
 }

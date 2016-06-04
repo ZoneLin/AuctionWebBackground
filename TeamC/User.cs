@@ -66,6 +66,7 @@ namespace TeamC
             else
             {
                 if (loginUser.GetPassword().Equals(password)){
+                    currentUser = GetUserData(id);
                     return true;
                 }
                 else{
