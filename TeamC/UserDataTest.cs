@@ -57,5 +57,12 @@ namespace TeamC
             Assert.That(addr, Is.EqualTo(user.GetEmail()));
 
         }
+        public void TestSetGetshopcart()
+        {
+            UserData user = new UserData();
+            ShopingCart ord = new ShopingCart();
+            user.Setshopcart(ord);
+            Assert.That(ord, Is.EqualTo(user.Getshopcart()));
+        }
     }
 }
