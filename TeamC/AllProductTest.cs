@@ -14,30 +14,26 @@ namespace TeamC
         public void TestInsertAndGet()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product();
-            product.SetName("Test1");
-            product.SetContent("Very Expensive");
-            product.SetPrice(300000);
-            Product product2 = new Product();
-            product2.SetName("Test2");
-            product2.SetContent("Very cheap");
-            product2.SetPrice(100);
+            Product product = new Product("Test1", "Expensive", 30000);
+            Product product2 = new Product("Test2", "Cheap", 100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That("Test2", Is.EqualTo(allproduct.GetProduct(1).getName()));
         }
         [Test]
+        public void TestGetProductExcept()
+        {
+            AllProduct allproduct = new AllProduct();
+            Product product = new Product("Test1", "Expensive", 30000);
+            allproduct.InsertProduct(product);
+            Assert.That("", Is.EqualTo(allproduct.GetProduct(1).getName()));
+        }
+        [Test]
         public void TestInsertAndRemove()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product();
-            product.SetName("Test1");
-            product.SetContent("Very Expensive");
-            product.SetPrice(300000);
-            Product product2 = new Product();
-            product2.SetName("Test2");
-            product2.SetContent("Very cheap");
-            product2.SetPrice(100);
+            Product product = new Product("Test1", "Expensive", 30000);
+            Product product2 = new Product("Test2", "Cheap", 100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             allproduct.RemoveProduct(product);
@@ -47,14 +43,8 @@ namespace TeamC
         public void TestGetIndex()
         {
             AllProduct allproduct = new AllProduct();
-            Product product = new Product();
-            product.SetName("Test1");
-            product.SetContent("Very Expensive");
-            product.SetPrice(300000);
-            Product product2 = new Product();
-            product2.SetName("Test2");
-            product2.SetContent("Very cheap");
-            product2.SetPrice(100);
+            Product product = new Product("Test1", "Expensive", 30000);
+            Product product2 = new Product("Test2", "Cheap", 100);
             allproduct.InsertProduct(product);
             allproduct.InsertProduct(product2);
             Assert.That(1, Is.EqualTo(allproduct.GetProductIndex(product2)));

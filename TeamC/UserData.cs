@@ -9,16 +9,20 @@ namespace TeamC
     class UserData
     {
         private string password;
+        private string emailAddress;
+        private string account;
         private int usertype;
         private List<Order> orderlist=new List<Order>();
         private List<string> payinformation;
-        private string account;
-        public  UserData(string id="",string pwd="")
+
+        public UserData(string id="", string pwd = "", string email = "")
         {
+            emailAddress = email;
             password = pwd;
             account = id;
             usertype  = 0;
         }
+
         public void SetPayinformation(List<string> Payinformation)
         {
             payinformation = Payinformation;
@@ -46,6 +50,15 @@ namespace TeamC
         public void SetOrderList(Order order)
         {
             orderlist.Add(order);
+        }
+        public void SetEmail(string address)
+        {
+            if(!address.Equals(string.Empty))
+                emailAddress = address;
+        }
+        public string GetEmail()
+        {
+            return emailAddress;
         }
         public Order GetOrderList()
         {

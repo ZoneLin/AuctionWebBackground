@@ -9,6 +9,7 @@ namespace TeamC
     class User
     {
         List<UserData> userDatas;
+        UserData currentUser;
 
         public User()
         {
@@ -48,28 +49,45 @@ namespace TeamC
             return userDatas[index];
         }
 
+        // return null when no one login 
+        public UserData GetCurrentLoginUser()
+        {
+            return currentUser;
+        }
+
         public bool Login(string id, string password)
         {
             UserData loginUser = GetUserData(id);
             if (loginUser == null)
+            {
+                Console.WriteLine("account dose not exist");
                 return false;
+            }
             else
             {
-                if (loginUser.GetPassword().Equals(password))
+                if (loginUser.GetPassword().Equals(password)){
                     return true;
-                else
+                }
+                else{
+                    Console.WriteLine("account dose not exist");
                     return false;
+                }
             }
         }
 
-        public void Registered(string id, string password)
+        public void Logout()
         {
+            currentUser = null;
+        }
 
-            if (IdExist(id))
+        public void Registered(string id, string password, string email = "")
+        {
+            if (IdExist(id)){
+                Console.WriteLine("account already exist");
                 return;
-            else
-            {
-                UserData newAccount = new UserData(id, password);
+            }
+            else{
+                UserData newAccount = new UserData(id, password, email);
                 userDatas.Add(newAccount);
             }
         }
