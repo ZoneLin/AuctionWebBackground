@@ -19,7 +19,7 @@ namespace TeamC
             num = 1;
             lastTime = DateTime.Now;
         }
-        public Product(string NewName, string NewContent, int NewPrice, int NewNum) {
+        public Product(string NewName, string NewContent, int NewPrice, int NewNum = 1) {
             num = NewNum;
             name = NewName;
             content = NewContent;
