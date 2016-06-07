@@ -43,5 +43,22 @@ namespace TeamC
         {
             return productlist.IndexOf(product);
         }
+
+        public List<Product> search(string keyword)
+        {
+            List<Product> result = new List<Product>();
+            foreach (Product p in productlist) {
+                if (p.getName().Contains(keyword)) {
+                    result.Add(p);
+                }
+                else if (p.getContent().Contains(keyword)) {
+                    result.Add(p);
+                }
+                else if (p.getPrice().ToString().Contains(keyword)){
+                    result.Add(p);
+                }
+            }
+            return result;
+        }
     }
 }

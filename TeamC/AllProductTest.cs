@@ -61,5 +61,35 @@ namespace TeamC
             allproduct.CheckRemove();
             Assert.That(0, Is.EqualTo(allproduct.GetProductIndex(product2)));
         }
+        [Test]
+        public void TestSearching() {
+            AllProduct allproduct = new AllProduct();
+            for (int i = 0; i <= 5; i++) {
+                Product p = new Product("" + i, i + "5", 20);
+                allproduct.InsertProduct(p);
+            }
+            // (index)name content price
+            //           0      05    20
+            //           1      15    20
+            //           2      25    20
+            //           3      35    20
+            //           4      45    20
+            //           5      55    20
+            List<Product> result = new List<Product>();
+            result.Add(allproduct.GetProduct(1));
+            Assert.That(result, Is.EqualTo(allproduct.search("1")));
+            //moreDifficult
+            result.Clear();
+            result.Add(allproduct.GetProduct(0));
+            result.Add(allproduct.GetProduct(1));
+            result.Add(allproduct.GetProduct(2));
+            result.Add(allproduct.GetProduct(3));
+            result.Add(allproduct.GetProduct(4));
+            result.Add(allproduct.GetProduct(5));
+            Assert.That(result, Is.EqualTo(allproduct.search("2")));
+            //and more
+            Assert.That(result, Is.EqualTo(allproduct.search("5")));
+
+        }
     }
 }
