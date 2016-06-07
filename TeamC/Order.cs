@@ -10,27 +10,61 @@ namespace TeamC
     {
         List<Product> productlist = new List<Product>();
 
-        private string buytime = "";
-        private string paymethod = "";
-        private string orderstate = "";
+        enum paymethodType  {請選擇,信用卡, 匯款 , 超商取貨};
+        enum orderstateType {請選擇,出貨中, 運送中, 已到貨, 已取貨};
+        paymethodType paymethod;
+        orderstateType orderstate;
+        private DateTime buytime;
 
-        public void SetPaymethod(string method)
+        public void SetPaymethod(int methodCode)
         {
-            paymethod = method;
+            switch(methodCode)
+            {
+                case 0:
+                    paymethod = paymethodType.信用卡;
+                    break;
+                case 1:
+                    paymethod = paymethodType.匯款;
+                    break;
+                case 2:
+                    paymethod = paymethodType.超商取貨;
+                    break;
+                default:
+                    paymethod = paymethodType.請選擇;
+                    break;
+            }
         }
-        public void SetOrderState(string state)
+        public void SetOrderState(int stateCode)
         {
-            orderstate = state;
+            switch (stateCode)
+            {
+                case 0:
+                    orderstate = orderstateType.出貨中;
+                    break;
+                case 1:
+                    orderstate = orderstateType.運送中;
+                    break;
+                case 2:
+                    orderstate = orderstateType.已到貨;
+                    break;
+                case 3:
+                    orderstate = orderstateType.已取貨;
+                    break;
+                default:
+                    orderstate = orderstateType.請選擇;
+                    break;
+            }
         }
         
-        public void SetBuyTime(string time)
+        public void SetBuyTime(DateTime time)
         {
+
             buytime = time;
         }
 
         public string GetOrderState()
         {
-            return orderstate;
+            return orderstate.ToString();
         }
         
         public void AddFromCartToOrder(ShopingCart cart)
@@ -51,12 +85,12 @@ namespace TeamC
 
         public string GetBuyTime()
         {
-            return "12:30";
+            return buytime.ToString();
         }
 
         public string GetPayMethod()
         {
-            return paymethod;
+            return paymethod.ToString();
         }
     }
 }
