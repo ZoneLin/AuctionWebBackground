@@ -10,8 +10,8 @@ namespace TeamC
     {
         List<Product> productlist = new List<Product>();
 
-        enum paymethodType  {請選擇,信用卡, 匯款 , 超商取貨};
-        enum orderstateType {請選擇,出貨中, 運送中, 已到貨, 已取貨};
+        enum paymethodType { 請選擇, 信用卡, 匯款, 貨到付款 };
+        enum orderstateType { 未知, 出貨中, 運送中, 已到貨, 已取貨 };
         paymethodType paymethod;
         orderstateType orderstate;
         private DateTime buytime;
@@ -27,7 +27,7 @@ namespace TeamC
                     paymethod = paymethodType.匯款;
                     break;
                 case 2:
-                    paymethod = paymethodType.超商取貨;
+                    paymethod = paymethodType.貨到付款;
                     break;
                 default:
                     paymethod = paymethodType.請選擇;
@@ -51,7 +51,7 @@ namespace TeamC
                     orderstate = orderstateType.已取貨;
                     break;
                 default:
-                    orderstate = orderstateType.請選擇;
+                    orderstate = orderstateType.未知;
                     break;
             }
         }
