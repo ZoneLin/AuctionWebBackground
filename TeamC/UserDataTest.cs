@@ -53,10 +53,16 @@ namespace TeamC
         {
             UserData user = new UserData();
             string addr = "123";
-            user.SetEmail(addr);
+            Assert.That(0, Is.EqualTo(user.SetEmail(addr)));
+            addr = "12425@gmail";
+            Assert.That(1, Is.EqualTo(user.SetEmail(addr)));
+            addr = "12425@gmail.com";
+            Assert.That(2, Is.EqualTo(user.SetEmail(addr)));
+            addr = "12425@gmail.com";
             Assert.That(addr, Is.EqualTo(user.GetEmail()));
 
         }
+        [Test]
         public void TestSetGetshopcart()
         {
             UserData user = new UserData();

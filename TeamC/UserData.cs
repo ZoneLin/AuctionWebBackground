@@ -57,10 +57,23 @@ namespace TeamC
         {
             orderlist.Add(order);
         }
-        public void SetEmail(string address)
+        public int SetEmail(string address)
         {
-            if(!address.Equals(string.Empty))
+            int truth = 0;
+            char[] EmailAddress = address.ToCharArray();
+            for (int i = 0; i < EmailAddress.Length; i++)
+            {
+                if (EmailAddress[i] == '@')
+                    truth += 1;
+                else if (EmailAddress[i] == '.' && i == (EmailAddress.Length - 4))
+                    if (EmailAddress[i + 1] == 'c')
+                        if (EmailAddress[i + 2] == 'o')
+                            if (EmailAddress[i + 3] == 'm')
+                                truth += 1;
+            }
+            if (truth == 2)
                 emailAddress = address;
+            return truth;
         }
         public string GetEmail()
         {
