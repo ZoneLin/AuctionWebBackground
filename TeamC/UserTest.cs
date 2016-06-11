@@ -65,5 +65,21 @@ namespace TeamC
             users.Logout();
             Assert.That(users.GetCurrentLoginUser(), Is.EqualTo(null));
         }
+
+        [Test]
+        public void TestResetPassword()
+        {
+            User users = new User();
+            users.Registered("Amy", "amy1234", "amy@gmail.com");
+            users.Registered("Sam", "Sam1234", "sam@gmail.com");
+            users.Registered("Bob", "bob1234", "bob@gmail.com");
+            // First case : No account
+            Assert.That(users.ResetPassword("Tom","123456"), Is.EqualTo("Account not exsit !!"));
+            // Second case : The same password
+            Assert.That(users.ResetPassword("Amy", "amy1234"), Is.EqualTo("Password can't be the same as the previous password !!"));
+            // Third case : Succeed
+            Assert.That(users.ResetPassword("Bob", "12341234"), Is.EqualTo("Reset scceed !!"));
+                       
+        }
     }
 }

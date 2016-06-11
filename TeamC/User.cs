@@ -92,5 +92,22 @@ namespace TeamC
                 userDatas.Add(newAccount);
             }
         }
+
+        public string ResetPassword(string id , string password)
+        {
+            for (int i = 0; i < userDatas.Count; i++)
+            {
+                if (userDatas[i].GetAccount() == id)
+                {   // if we find the account
+                    if (userDatas[i].GetPassword() == password)
+                    {   // if the reset password is the same as the previous one.
+                        return "Password can't be the same as the previous password !!";
+                    }
+                    userDatas[i].SetPassword(password);     // id meets, password-check passes.
+                    return "Reset scceed !!" ;
+                }
+            } 
+            return "Account not exsit !!";  // if there is no the specific id.
+        }
     }
 }
