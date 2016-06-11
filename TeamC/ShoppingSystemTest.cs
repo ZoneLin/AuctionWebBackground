@@ -43,5 +43,27 @@ namespace TeamC
             Assert.That(users.Login("A", "BBBBB"), Is.EqualTo(false));
             Assert.That(users.Login("B", "BBBBB"), Is.EqualTo(false));
         }
+        [Test]
+        public void GetProduct()
+        {
+            ShoppingSystem users = new ShoppingSystem();
+            Product product = new Product("Test1", "Expensive", 30000, 1);
+            users.InsertProduct(product);
+            Assert.That("", Is.EqualTo(users.GetProduct(1).getName()));
+        }
+        [Test]
+        public void InsertProductandRemove()
+        {
+            ShoppingSystem users = new ShoppingSystem();
+            Product product = new Product("Test1", "Expensive", 30000, 1);
+            Product product2 = new Product("Test2", "Ex", 300, 2);
+            users.InsertProduct(product);
+            users.InsertProduct(product2);
+            Assert.That("Test1", Is.EqualTo(users.GetProduct(0).getName()));
+            Assert.That("Test2", Is.EqualTo(users.GetProduct(1).getName()));
+            users.RemoveProduct(product2);
+            Assert.That("", Is.EqualTo(users.GetProduct(1).getName()));
+        }
     }
 }
+

@@ -8,17 +8,17 @@ namespace TeamC
 {
     class ShoppingSystem
     {
-        private Order order=new Order();
-        private AllProduct allproduct=new AllProduct();
-        private User user =new User();
+        private Order order = new Order();
+        private AllProduct allproduct = new AllProduct();
+        private User user = new User();
 
         public void Registered(string id, string password)
         {
-            user.Registered(id,password);
+            user.Registered(id, password);
         }
         public Boolean Login(string id, string password)
         {
-            Boolean flag=user.Login(id, password);
+            Boolean flag = user.Login(id, password);
             return flag;
         }
         public void Logout()
@@ -35,14 +35,28 @@ namespace TeamC
             UserData userdata = user.GetUserData(index);
             return userdata;
         }
-        public UserData  GetCurrentLoginUser(string id)
+        public UserData GetCurrentLoginUser(string id)
         {
             UserData userdata = user.GetUserData(id);
             return userdata;
         }
-
-
-
+        public Product GetProduct(int index)
+        {
+            Product Getproduct = allproduct.GetProduct(index);
+            return Getproduct;
+        }
+        public void InsertProduct(Product product)
+        {
+            allproduct.InsertProduct(product);
+        }
+        public void RemoveProduct(Product product)
+        {
+            allproduct.RemoveProduct(product);
+        }
+        public void CheckRemove()
+        {
+            allproduct.CheckRemove();
+        }
 
     }
 }

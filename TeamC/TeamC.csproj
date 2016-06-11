@@ -72,6 +72,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopingCart.cs" />
     <Compile Include="ShopingCartTest.cs" />
+    <Compile Include="ShoppingSystem.cs" />
+    <Compile Include="ShoppingSystemTest.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="UserDataTest.cs" />
