@@ -58,7 +58,6 @@ namespace TeamC
             product2.SetPrice(100);
             Assert.That(2, Is.EqualTo(productlist.InsertProduct(product2)));
         }
-
     }
 }
 

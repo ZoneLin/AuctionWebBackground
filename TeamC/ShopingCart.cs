@@ -41,5 +41,10 @@ namespace TeamC
         {
             return productlist.Count();
         }   //  get the number of product that added to the cart.
+
+        public void RemoveProduct(Product productToRemove)
+        {
+            productlist.Remove(productToRemove);
+        }
     }
 }
