@@ -11,6 +11,7 @@ namespace TeamC
         private string password;
         private string emailAddress;
         private string account;
+        private string request;
         private int usertype;
         private List<ShopingCart> shopchart = new List<ShopingCart>();
         private List<Order> orderlist=new List<Order>();
@@ -22,6 +23,7 @@ namespace TeamC
             password = pwd;
             account = id;
             usertype  = 0;
+            request = null;
         }
 
         public void SetPayinformation(List<string> Payinformation)
@@ -95,6 +97,14 @@ namespace TeamC
         public ShopingCart Getshopcart()
         {
             return shopchart[0];
+        }
+        public string Getrequest()
+        {
+            return request;
+        }
+        public void Setrequest(string input)
+        {
+            request=input;
         }
     }
 }

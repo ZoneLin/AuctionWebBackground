@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -108,6 +109,50 @@ namespace TeamC
                 }
             } 
             return "Account not exsit !!";  // if there is no the specific id.
+        }
+
+        public string Request(UserData userdata,string request)
+        {
+            if (userdata.GetUserType() == 0)
+            {
+                userdata.Setrequest(request);
+                return "Success";
+            }
+            else
+            {
+                return "You are a seller or admin.";
+            }
+        }
+
+        public string ListRequest(UserData userdata) {
+            if (userdata.GetUserType() == 2)
+            {
+                string output="";
+                for (int i = 0; i < userDatas.Count; i++)
+                {
+                    if (userDatas[i].Getrequest() != null)
+                    {
+                        output += i.ToString()+"," + userDatas[i].GetAccount() + "," + userDatas[i].Getrequest() + "\n";
+                    }        
+                }
+                return output;
+            }
+            else
+            {
+                return "permission error";
+            }
+        }
+        public void CheckRequest(UserData userdata,int index)
+        {
+            if (userdata.GetUserType() == 2)
+            {
+                userDatas[index].Setrequest(null);
+                userDatas[index].SetUserType(1);
+            }
+            else
+            {
+                Console.WriteLine("permission error");
+            }
         }
     }
 }

@@ -81,5 +81,53 @@ namespace TeamC
             Assert.That(users.ResetPassword("Bob", "12341234"), Is.EqualTo("Reset scceed !!"));
                        
         }
+        [Test]
+        public void TestAddRequest()
+        {
+            User users = new User();
+            users.Registered("Amy", "amy1234", "amy@gmail.com");
+            users.Registered("Sam", "Sam1234", "sam@gmail.com");
+            users.Registered("Bob", "bob1234", "bob@gmail.com");
+            users.GetUserData("Amy").SetUserType(0);
+            users.GetUserData("Sam").SetUserType(1);
+            users.GetUserData("Bob").SetUserType(2);
+            users.Request(users.GetUserData("Amy"),"I want to sell");
+            users.Request(users.GetUserData("Sam"), "I want to sell");
+            // First case : No account
+            Assert.That(users.GetUserData("Amy").Getrequest(), Is.EqualTo("I want to sell")); 
+        }
+        [Test]
+        public void TestErrorRequest()
+        {
+            User users = new User();
+            users.Registered("Amy", "amy1234", "amy@gmail.com");
+            users.Registered("Sam", "Sam1234", "sam@gmail.com");
+            users.Registered("Bob", "bob1234", "bob@gmail.com");
+            users.GetUserData("Amy").SetUserType(0);
+            users.GetUserData("Sam").SetUserType(1);
+            users.GetUserData("Bob").SetUserType(2);
+            string result, result2;
+            result=users.Request(users.GetUserData("Sam"), "I want to sell");
+            result2=users.Request(users.GetUserData("Bob"), "I want to sell");
+            
+            Assert.That(result, Is.EqualTo("You are a seller or admin."));
+            Assert.That(result2, Is.EqualTo("You are a seller or admin."));
+        }
+        [Test]
+        public void TestListCheckRequest()
+        {
+            User users = new User();
+            users.Registered("Amy", "amy1234", "amy@gmail.com");
+            users.Registered("Sam", "Sam1234", "sam@gmail.com");
+            users.Registered("Bob", "bob1234", "bob@gmail.com");
+            users.GetUserData("Amy").SetUserType(0);
+            users.GetUserData("Sam").SetUserType(1);
+            users.GetUserData("Bob").SetUserType(2);
+            users.Request(users.GetUserData("Amy"), "I want to sell");     
+            
+            Assert.That(users.ListRequest(users.GetUserData("Bob")), Is.EqualTo("0,Amy,I want to sell\n"));
+            users.CheckRequest(users.GetUserData("Bob"), 0);
+            Assert.That(users.ListRequest(users.GetUserData("Bob")), Is.EqualTo(""));
+        }
     }
 }
