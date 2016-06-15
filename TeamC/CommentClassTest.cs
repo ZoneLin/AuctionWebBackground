@@ -28,14 +28,24 @@ namespace TeamC
             Assert.That(content, Is.EqualTo(comment.getCommentContent()));
         }
         [Test]
-        public void testGetCommentContent()
+        public void testGetCommentUser()
         {
             UserData user = new UserData("test", "pwd", "mail");
             //set content
             string content = "I'm comment";
             CommentClass comment = new CommentClass(content, user.GetAccount());
-            Assert.That(content, Is.EqualTo(comment.getCommentContent()));
+            Assert.That(user.GetAccount(), Is.EqualTo(comment.getCommentUser()));
         }
-
+        [Test]
+        public void testSetCommentContant()
+        {
+            UserData user = new UserData("test", "pwd", "mail");
+            CommentClass comment = new CommentClass("test", user.GetAccount());
+            string newContant = "change contant";
+            comment.setCommentContent(newContant);
+            
+            Assert.That(newContant, Is.EqualTo(comment.getCommentContent()));
+        }
+        
     }
 }

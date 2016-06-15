@@ -13,7 +13,6 @@ namespace TeamC
         private DateTime date;
         public CommentClass(string newContent="", string newUserID="")
         {
-            // TODO: Complete member initialization
             this.commentcontent = newContent;
             this.commentuserID = newUserID;
             this.date = DateTime.Now;
@@ -27,6 +26,17 @@ namespace TeamC
         public string getCommentContent()
         {
             return commentcontent;
+        }
+
+        public void setCommentContent(string newContant)
+        {
+            this.commentcontent = newContant;
+            this.date = DateTime.Now;
+        }
+
+        public string getCommentUser()
+        {
+            return commentuserID;
         }
     }
 }
