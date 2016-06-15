@@ -58,9 +58,6 @@ namespace TeamC
             allproduct.CheckRemove();
         }
 
-        public void RemoveProduct(Product product)
-        {
-            allproduct.RemoveProduct(product);
-        }
+       
     }
 }

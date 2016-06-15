@@ -12,7 +12,7 @@ namespace TeamC
     {
         [Test]
         public void TestCreateNewAccount()
-        {
+        {   // Registered
             User users = new User();
             users.Registered("A", "pswA");
             Assert.That(users.GetUserData("A").GetAccount(), Is.EqualTo("A"));
@@ -55,6 +55,16 @@ namespace TeamC
         }
 
         [Test]
+        public void TestLogout() {
+            User users = new User();
+            users.Registered("Bob", "bob123456");
+            users.Login("bob", "bob123456");
+            Assert.That(users.Logout(), Is.EqualTo("Logout Succeed."));
+            users.Logout();
+            Assert.That(users.GetCurrentLoginUser(),Is.EqualTo(null));
+        }
+
+        [Test]
         public void TestCurrentUser()
         {
             User users = new User();
@@ -81,6 +91,7 @@ namespace TeamC
             Assert.That(users.ResetPassword("Bob", "12341234"), Is.EqualTo("Reset scceed !!"));
                        
         }
+
         [Test]
         public void TestAddRequest()
         {

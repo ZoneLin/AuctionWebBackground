@@ -71,15 +71,16 @@ namespace TeamC
                     return true;
                 }
                 else{
-                    Console.WriteLine("account dose not exist");
+                    Console.WriteLine("Wrong Password");
                     return false;
                 }
             }
         }
 
-        public void Logout()
+        public string Logout()
         {
             currentUser = null;
+            return "Logout Succeed.";
         }
 
         public void Registered(string id, string password, string email = "")
@@ -142,6 +143,7 @@ namespace TeamC
                 return "permission error";
             }
         }
+
         public void CheckRequest(UserData userdata,int index)
         {
             if (userdata.GetUserType() == 2)
