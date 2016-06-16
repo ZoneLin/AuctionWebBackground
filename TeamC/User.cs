@@ -20,12 +20,15 @@ namespace TeamC
         public bool IdExist(string id)
         {
             if (GetUserData(id) == null)
-            {
+            {   // if id is null, of course dosen't exist.
                 return false;
             }
             else
-            {
-                return true;
+            {   // if found the id in userdatas, return true.
+                for (int i = 0; i < userDatas.Count();i++ )
+                    if(userDatas[i].GetAccount() == id)
+                        return true;
+                return false;
             }
         }
 
@@ -60,17 +63,17 @@ namespace TeamC
         {
             UserData loginUser = GetUserData(id);
             if (loginUser == null)
-            {
+            {   // no this user id.
                 Console.WriteLine("account dose not exist");
                 return false;
             }
             else
-            {
+            {   // right id an right password.
                 if (loginUser.GetPassword().Equals(password)){
                     currentUser = GetUserData(id);
                     return true;
                 }
-                else{
+                else{   // right id but wrong password.
                     Console.WriteLine("Wrong Password");
                     return false;
                 }
@@ -83,15 +86,15 @@ namespace TeamC
             return "Logout Succeed.";
         }
 
-        public void Registered(string id, string password, string email = "")
+        public string Registered(string id, string password, string email = "")
         {
             if (IdExist(id)){
-                Console.WriteLine("account already exist");
-                return;
+                return "account already exist";
             }
             else{
                 UserData newAccount = new UserData(id, password, email);
                 userDatas.Add(newAccount);
+                return "Registered Succeed.";
             }
         }
 

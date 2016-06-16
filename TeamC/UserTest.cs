@@ -14,9 +14,25 @@ namespace TeamC
         public void TestCreateNewAccount()
         {   // Registered
             User users = new User();
+            // First case : create a new account and make sure it's succeed.
+            Assert.That(users.Registered("A", "pswA"), Is.EqualTo("Registered Succeed."));
             users.Registered("A", "pswA");
             Assert.That(users.GetUserData("A").GetAccount(), Is.EqualTo("A"));
             Assert.That(users.GetUserData("A").GetPassword(), Is.EqualTo("pswA"));
+            // Second case : there is already an account named "id"
+            Assert.That(users.Registered("A", "pswA"), Is.EqualTo("account already exist"));
+        }
+
+        [Test]
+        public void TestIdExist()
+        {
+            User users = new User();
+            // First case : no such account.
+            Assert.That(users.IdExist("A"), Is.EqualTo(false));
+            // Second case : id exist !!.
+            users.Registered("A", "pswA");
+            Assert.That(users.IdExist("A"), Is.EqualTo(true));
+
         }
 
         [Test]
@@ -38,7 +54,11 @@ namespace TeamC
         public void TestAccountIsExist()
         {
             User users = new User();
+            // First case : no input id
+            Assert.That(users.IdExist(""),Is.EqualTo(false));
+            // Second case : no this id in userdatas.
             Assert.That(users.IdExist("A"), Is.EqualTo(false));
+            // Third case : There is the user.
             users.Registered("A", "pswA");
             Assert.That(users.IdExist("A"), Is.EqualTo(true));
         }
@@ -48,9 +68,11 @@ namespace TeamC
         {
             User users = new User();
             users.Registered("A", "pswA");
-
+            // First case : right id and right password.
             Assert.That(users.Login("A", "pswA"), Is.EqualTo(true));
+            // Second case : right id but wrong password.
             Assert.That(users.Login("A", "BBBBB"), Is.EqualTo(false));
+            // Third case : no this user account.
             Assert.That(users.Login("B", "BBBBB"), Is.EqualTo(false));
         }
 
