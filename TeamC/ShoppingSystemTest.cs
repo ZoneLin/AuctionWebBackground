@@ -52,7 +52,18 @@ namespace TeamC
             Assert.That("", Is.EqualTo(users.GetProduct(1).getName()));
         }
         [Test]
-        public void InsertProductandRemove()
+        public void InsertProduct()
+        {
+            ShoppingSystem users = new ShoppingSystem();
+            Product product = new Product("Test1", "Expensive", 30000, 1);
+            Product product2 = new Product("Test2", "Ex", 300, 2);
+            users.InsertProduct(product);
+            users.InsertProduct(product2);
+            Assert.That("Test1", Is.EqualTo(users.GetProduct(0).getName()));
+            Assert.That("Test2", Is.EqualTo(users.GetProduct(1).getName()));
+        }
+        [Test]
+        public void ProductandRemove()
         {
             ShoppingSystem users = new ShoppingSystem();
             Product product = new Product("Test1", "Expensive", 30000, 1);
