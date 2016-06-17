@@ -26,13 +26,19 @@ namespace TeamC
             request = null;
         }
 
-        public void SetPayinformation(List<string> Payinformation)
+        public bool SetPayinformation(List<string> Payinformation)
         {
-            payinformation = Payinformation;
+            if (Payinformation != null)
+            {
+                payinformation = Payinformation;
+                return true;
+            }
+                return false;
         }
         public List<string> GetPayinformation()
         {
-            return payinformation;
+                return payinformation;
+
         }
         public int SetPassword(string pwd)
         {

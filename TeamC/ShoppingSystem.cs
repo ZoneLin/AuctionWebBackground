@@ -12,38 +12,50 @@ namespace TeamC
         private AllProduct allproduct = new AllProduct();
         private User user = new User();
 
-        public void Registered(string id, string password)
+        public bool Registered(string id, string password)
         {
-            user.Registered(id, password);
+            if (user.Registered(id, password)== "Registered Succeed")
+                return true;
+            return false;
         }
         public Boolean Login(string id, string password)
         {
             Boolean flag = user.Login(id, password);
             return flag;
         }
-        public void Logout()
+        public bool Logout()
         {
-            user.Logout();
+            if (user.Logout() == "Logout Succeed")
+                return true;
+            return false;
         }
         public UserData GetUserData(string id)
         {
             UserData userdata = user.GetUserData(id);
-            return userdata;
+            if(userdata!=null)
+                return userdata;
+            return null;
         }
         public UserData GetUserData(int index)
         {
             UserData userdata = user.GetUserData(index);
-            return userdata;
+            if (userdata != null)
+                return userdata;
+            return null;
         }
         public UserData GetCurrentLoginUser(string id)
         {
             UserData userdata = user.GetUserData(id);
-            return userdata;
+            if (userdata != null)
+                return userdata;
+            return null;
         }
         public Product GetProduct(int index)
         {
             Product Getproduct = allproduct.GetProduct(index);
-            return Getproduct;
+            if (Getproduct != null)
+                return Getproduct;
+            return null;
         }
         public void InsertProduct(Product product)
         {
