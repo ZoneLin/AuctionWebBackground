@@ -33,6 +33,10 @@ namespace TeamC
             this.commentcontent = newContant;
             this.date = DateTime.Now;
         }
+        public void setCommentDate(DateTime t_date)
+        {
+            date = t_date;
+        }
 
         public string getCommentUser()
         {

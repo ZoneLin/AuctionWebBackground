@@ -65,6 +65,8 @@
     <Compile Include="AllProductTest.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Class1Test.cs" />
+    <Compile Include="CommentClass.cs" />
+    <Compile Include="CommentClassTest.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderTest.cs" />
     <Compile Include="Product.cs" />

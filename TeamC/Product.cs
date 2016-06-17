@@ -8,18 +8,21 @@ namespace TeamC
 {
     class Product
     {
-        private  string name;
-        private  string content;
-        private  int  price;
-        private  DateTime lastTime;
+        private string name;
+        private string content;
+        private int price;
+        private List<CommentClass> comment = new List<CommentClass>();
+        private DateTime lastTime;
         private int num;
-        public Product() {
+        public Product()
+        {
             name = content = "";
             price = 0;
             num = 1;
             lastTime = DateTime.Now;
         }
-        public Product(string NewName, string NewContent, int NewPrice, int NewNum = 1) {
+        public Product(string NewName, string NewContent, int NewPrice, int NewNum = 1)
+        {
             num = NewNum;
             name = NewName;
             content = NewContent;
@@ -62,11 +65,37 @@ namespace TeamC
         {
             return lastTime;
         }
-        public int getNum() {
+        public int getNum()
+        {
             return num;
         }
-        public void setNum(int NewNum){
+        public void setNum(int NewNum)
+        {
             num = NewNum;
+        }
+
+        public CommentClass GetComment(int index)
+        {
+            Console.WriteLine("count" + comment.Count);
+            return comment[index];
+        }
+
+        public void Addcomment(CommentClass context)
+        {
+            Console.WriteLine("count" + comment.Count);
+            comment.Add(context);
+            Console.WriteLine("count" + comment.Count);
+        }
+        public void Removecomment(int index)
+        {
+            if (comment.Count >= index)
+            {
+                comment.RemoveAt(index);
+            }
+        }
+        public int getCommentCount()
+        {
+            return comment.Count;
         }
     }
 }
