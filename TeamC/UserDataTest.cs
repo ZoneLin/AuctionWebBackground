@@ -58,9 +58,12 @@ namespace TeamC
             Assert.That(1, Is.EqualTo(user.SetEmail(addr)));
             addr = "12425@gmail.com";
             Assert.That(2, Is.EqualTo(user.SetEmail(addr)));
+            addr = "123";
+            Assert.That(0, Is.EqualTo(user.SetEmail(addr)));
+            addr = "12425@gmail";
+            Assert.That(1, Is.EqualTo(user.GetEmail(addr)));
             addr = "12425@gmail.com";
-            Assert.That(addr, Is.EqualTo(user.GetEmail()));
-
+            Assert.That(2, Is.EqualTo(user.GetEmail(addr)));
         }
         [Test]
         public void TestSetGetshopcart()

@@ -84,9 +84,24 @@ namespace TeamC
                 emailAddress = address;
             return truth;
         }
-        public string GetEmail()
+        public int GetEmail(string address)
         {
-            return emailAddress;
+            int truth = 0;
+            string getemail;
+            char[] EmailAddress = address.ToCharArray();
+            for (int i = 0; i < EmailAddress.Length; i++)
+            {
+                if (EmailAddress[i] == '@')
+                    truth += 1;
+                else if (EmailAddress[i] == '.' && i == (EmailAddress.Length - 4))
+                    if (EmailAddress[i + 1] == 'c')
+                        if (EmailAddress[i + 2] == 'o')
+                            if (EmailAddress[i + 3] == 'm')
+                                truth += 1;
+            }
+            if (truth == 2)
+                getemail = address;
+            return truth;
         }
         public Order GetOrderList()
         {
