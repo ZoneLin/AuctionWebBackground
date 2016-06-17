@@ -70,5 +70,21 @@ namespace TeamC
             user.Setshopcart(ord);
             Assert.That(ord, Is.EqualTo(user.Getshopcart()));
         }
+        [Test]
+        public void TestSetGetevaluate()
+        {
+            UserData user = new UserData();
+            user.SetUserType(1);
+            user.Setevaluate("nice");
+            Assert.That(user.Getevaluate(), Is.EqualTo("nice"));
+        }
+        [Test]
+        public void TestSetGetevaluateExcept()
+        {
+            UserData user = new UserData();
+            user.SetUserType(0);
+            user.Setevaluate("nice");
+            Assert.That(user.Getevaluate(), Is.EqualTo("Not Seller"));
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace TeamC
         private List<ShopingCart> shopchart = new List<ShopingCart>();
         private List<Order> orderlist=new List<Order>();
         private List<string> payinformation;
-
+        private string evaluate;
         public UserData(string id="", string pwd = "", string email = "")
         {
             emailAddress = email;
@@ -24,6 +24,7 @@ namespace TeamC
             account = id;
             usertype  = 0;
             request = null;
+            evaluate = null;
         }
 
         public bool SetPayinformation(List<string> Payinformation)
@@ -111,6 +112,18 @@ namespace TeamC
         public void Setrequest(string input)
         {
             request=input;
+        }
+        public void Setevaluate(string evaluate_input)
+        {
+            if(usertype==1)
+                evaluate = evaluate_input;
+        }
+        public string Getevaluate()
+        {
+            if (usertype == 1)
+                return evaluate;
+            else
+                return "Not Seller";
         }
     }
 }
